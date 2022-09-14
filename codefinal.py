@@ -11,7 +11,7 @@ with open("new_1ubq.hb2", "r") as HB :
 print (HDonor)
 print (HAcceptor)
 
-#Fonction turn
+#Fonction turn: seulement turn_4 parce qu'on s'intéresse aux hélices alpha
 turn =[]
 i = 0
 x = 0   
@@ -31,7 +31,7 @@ print ("laison d'une Hélice alpha :" , turn[i])
 
 
 for i in range(len(HDonor)) :
-    if [HDonor[i],HAcceptor[i]] in turn_H :
+    if (HDonor[i],HAcceptor[i]) in turn_H :
         print("H" , end="")
     else :
         print("-" , end="" )
@@ -57,18 +57,19 @@ print("h_Bond_sort :", h_Bond_sort)
 h_cons = []
 for i in range (1,len(h_Bond_F)-1) :
         if h_Bond_sort[i+1][0]- h_Bond_sort[i][0] == 1 and h_Bond_sort[i][0]- h_Bond_sort[i-1][0] == 1 :
-            h_cons.append( [h_Bond_sort[i-1], h_Bond_sort[i] , h_Bond_sort[i+1] ])
+            h_cons.append([h_Bond_sort[i-1], h_Bond_sort[i] , h_Bond_sort[i+1] ])
 print ("h_cons : " ,h_cons)
 
 
 
 #Permet de vérifier la position des accepteurs l'un par rapports à son consécutifs pour créer des listes de bridge : parallèle et antiparallèle
-#Bridge parallèle
+#Bridges parallèles et Antiparallèles
 brid_P = []
 brid_Anti = []
 for i in range (len(h_cons)-2) :
     if h_cons[i][0][1] - h_cons[i][2][1] == -2 : 
-      brid_P.append ([h_cons[i],h_cons[i+1]] ) 
+      brid_P.append (h_cons[i])
+      brid_P.append (h_cons[i+1]) 
     else :
          if h_cons[i][0][1] -  h_cons[i][2][1] == 2 :
             brid_Anti.append([h_cons[i],h_cons[i+1]])
@@ -96,9 +97,3 @@ for i in range (len(ladder)) :
         feuillet.append(ladder[i])
 print("feuillet", feuillet)
     
-for i in range(len(HDonor)) :
-    if [feuillet[i]] in h_cons :
-        print("F" , end="")
-    else :
-        print("-" , end="" )
-print ("/n")
