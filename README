@@ -1,1 +1,16 @@
-
+**Ce code sert à l'implémentation de la méthode DSSP pour l'assignation de la structure secondaire des protéines.**
+on doit choisir la protéine sur laquelle on veut travailler aprés on passe sur le site RCSB pour récuperer le fichier PDB appartenant à cette molécule.
+Notre démarche se base sur les liaisons d'hydrogène.
+Pour ce fait, on doit faire passer notre fichier PDB dans le programme HBPlus pour récupérer les liaisons:
+On commence par l'installation du programme : 
+Pour pouvoir installer HBPlus, Vous devez être un utilisateur académique et avoir envoyé un accord de confidentialité signé aux auteurs.
+HBPLUS est disponible par ftp anonyme sous la forme d'un fichier 'crypté', hbplus.tar.Z.cr.
+Sur un système unix, utilisez :
+unix> crypt [password] < hbplus.tar.Z.cr > ! hbplus.tar.Z
+unix> décompresser hbplus.tar.Z
+unix> tar xf hbplus.tar
+unix> make
+Le mot de passe est envoyé par e-mail comme réponse au fichier de confidentialité.
+Après l’installation du logiciel, on le lance par la commande : ./hbplus et finalement on ouvre notre fichier PDB qu’on a déjà nettoyé par la commande "^ATOM" 1ubq.pdb > 1ubq.pdb avec 1ubq le nom de fichier PDB de la protéine qu’on souhaite analyser. 
+Au final on va obtenir un fichier .hb2 qui est le Input de notre programme.
+Pour lancer le programmer, utiliser : python3 codefinal.py mol.hb2 avec mol.hb2 représente le résultat du programme HBPlus pour la molécule choisie.
