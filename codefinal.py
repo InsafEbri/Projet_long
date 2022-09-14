@@ -26,7 +26,6 @@ turn_H = []
 for i in range(len(turn)-1):
     if abs(turn[i][0] - turn[i+1][0]) == 1:
         turn_H.append(turn[i])
-#print("turn_H : " , turn_H)
 print ("laison d'une Hélice alpha :" , turn[i])
 
 
@@ -90,10 +89,11 @@ for i in range(len(brid_Anti)-1):
         ladd_Anti.append(brid_P[i])
 print("ladd_Anti : " , ladd_Anti)
 ladder = ladd_P + ladd_Anti
+
 #Détermination des feuillets beta
 feuillet=[]
 for i in range (len(ladder)) :
     if ladder[i][0] or ladder[i][1] or ladder[i][2] in ladder[i+1] :
         feuillet.append(ladder[i])
-print("feuillet", feuillet)
+
     
